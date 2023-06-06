@@ -10,6 +10,7 @@ import UIKit
 protocol AssetViewModel {
     var viewActions: AssetViewActions? { get set }
     var asset: LPAsset { get set }
+    var placeholder: UIImage? { get set }
 }
 
 protocol AssetView: AssetViewActions, UIView {

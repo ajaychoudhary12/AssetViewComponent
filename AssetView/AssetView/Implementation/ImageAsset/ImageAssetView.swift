@@ -20,7 +20,27 @@ class ImageAssetView: UIView, AssetView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func applyModel() {
-        
+    func layoutViews() {
+        addSubview(imageView)
     }
+    
+    func layoutConstraints() {
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+    func applyModel() {
+//        setImage(viewModel.asset.url, placeholder: viewModel.placeholder)
+    }
+    
+    // MARK: - UI Elements
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
 }
