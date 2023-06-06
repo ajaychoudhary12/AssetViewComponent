@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ImageAssetView: UIView, AssetView {
     var viewModel: AssetViewModel
