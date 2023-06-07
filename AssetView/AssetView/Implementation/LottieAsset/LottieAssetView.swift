@@ -16,6 +16,7 @@ class LottieAssetView: UIView, AssetView {
             if lottieAnimationView != nil {
                 configureAnimationView()
                 addAnimationViewAsSubview()
+                layoutConstraints()
             }
         }
     }
@@ -24,7 +25,6 @@ class LottieAssetView: UIView, AssetView {
         self.viewModel = viewModel
         super.init(frame: .zero)
         applyModel()
-        layoutConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -44,10 +44,6 @@ class LottieAssetView: UIView, AssetView {
         }
     }
     
-    func applyModel() {
-        setLottie(viewModel.asset.url)
-    }
-    
     private func layoutConstraints() {
         guard let lottieAnimationView = lottieAnimationView else { return }
         NSLayoutConstraint.activate([
@@ -56,6 +52,10 @@ class LottieAssetView: UIView, AssetView {
             lottieAnimationView.trailingAnchor.constraint(equalTo: trailingAnchor),
             lottieAnimationView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    func applyModel() {
+        setLottie(viewModel.asset.url)
     }
     
     private func setLottie(_ url: String?) {
@@ -81,7 +81,6 @@ class LottieAssetView: UIView, AssetView {
     
     private func handleError() {
         playDefaultAnimation()
-        layoutConstraints()
     }
     
     func playDefaultAnimation() {
