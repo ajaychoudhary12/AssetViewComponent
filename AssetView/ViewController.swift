@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     func layoutConstraints() {
         NSLayoutConstraint.activate([
             assetStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            assetStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
+            assetStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             assetStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             assetStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
@@ -47,10 +47,11 @@ class ViewController: UIViewController {
         return LPAsset.assets.map { asset in
             switch asset.mediaType {
             case .image:
-                let viewModel = ImageAssetViewModel(placeholder: UIImage(systemName: "heart.fill"), asset: asset)
+                let viewModel = ImageAssetViewModel(asset: asset)
                 return viewModel
             case .lottie:
-                return nil
+                let viewModel = LottieAssetViewModel(asset: asset)
+                return viewModel
             case .video:
                 return nil
             case .none:

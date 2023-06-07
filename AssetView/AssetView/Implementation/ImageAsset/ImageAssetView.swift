@@ -23,11 +23,11 @@ class ImageAssetView: UIView, AssetView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func layoutViews() {
+    private func layoutViews() {
         addSubview(imageView)
     }
     
-    func layoutConstraints() {
+    private func layoutConstraints() {
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor),
@@ -37,18 +37,19 @@ class ImageAssetView: UIView, AssetView {
     }
     
     func applyModel() {
-        setImage(viewModel.asset.url, placeholder: viewModel.placeholder)
+        setImage(viewModel.asset.url, placeholder: UIImage(systemName: "heart.fill"))
     }
     
-    func setImage(_ imageUrlString: String?, placeholder: UIImage? = nil, onSuccess: ((_ image: UIImage?) -> Void)? = nil, onFail: (() -> Void)? = nil) {
-        
-        if let imageUrlString = imageUrlString, let imageUrl = URL(string: imageUrlString) {
+    private func setImage(_ imageUrlString: String?, placeholder: UIImage? = nil) {
+        if let imageUrlString = imageUrlString,
+           let imageUrl = URL(string: imageUrlString) {
+            
             self.imageView.kf.setImage(with: imageUrl) { [weak self] result in
                 guard let self = self else { return }
                 
                 switch result {
-                case .success(let imageObj):
-                    self.imageView.image = imageObj.image
+                case .success(let imageResult):
+                    self.imageView.image = imageResult.image
                     self.viewModel.assetLoadingSucceded()
                 case .failure:
                     self.imageView.kf.setImage(with: imageUrl, placeholder: placeholder)

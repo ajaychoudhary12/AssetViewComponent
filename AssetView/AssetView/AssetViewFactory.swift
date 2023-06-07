@@ -17,7 +17,9 @@ class AssetViewFactory {
             viewModel.viewActions = imageAssetView
             return imageAssetView
         case .lottie:
-            return nil
+            let lottieAssetView = LottieAssetView(viewModel: viewModel)
+            viewModel.viewActions = lottieAssetView
+            return lottieAssetView
         case .video:
             return nil
         }

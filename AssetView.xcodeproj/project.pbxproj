@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		208F154E2A302EBA0006FD9B /* AssetViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208F154D2A302EBA0006FD9B /* AssetViewFactory.swift */; };
 		208F15512A3038000006FD9B /* LottieAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208F15502A3038000006FD9B /* LottieAssetView.swift */; };
+		208F15532A30440A0006FD9B /* LottieAssetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208F15522A30440A0006FD9B /* LottieAssetViewModel.swift */; };
+		208F15552A305A2A0006FD9B /* default_lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 208F15542A305A2A0006FD9B /* default_lottie.json */; };
 		20AC848A2A2F33D700777255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC84892A2F33D700777255 /* AppDelegate.swift */; };
 		20AC848C2A2F33D700777255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC848B2A2F33D700777255 /* SceneDelegate.swift */; };
 		20AC848E2A2F33D700777255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC848D2A2F33D700777255 /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 		19454904BE8C5A9358A6B155 /* Pods-AssetViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetViewTests.debug.xcconfig"; path = "Target Support Files/Pods-AssetViewTests/Pods-AssetViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		208F154D2A302EBA0006FD9B /* AssetViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewFactory.swift; sourceTree = "<group>"; };
 		208F15502A3038000006FD9B /* LottieAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAssetView.swift; sourceTree = "<group>"; };
+		208F15522A30440A0006FD9B /* LottieAssetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAssetViewModel.swift; sourceTree = "<group>"; };
+		208F15542A305A2A0006FD9B /* default_lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = default_lottie.json; sourceTree = "<group>"; };
 		20AC84862A2F33D700777255 /* AssetView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AC84892A2F33D700777255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20AC848B2A2F33D700777255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				208F15502A3038000006FD9B /* LottieAssetView.swift */,
+				208F15522A30440A0006FD9B /* LottieAssetViewModel.swift */,
 			);
 			path = LottieAsset;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				20AC84B92A2F42BE00777255 /* AssetView */,
 				20AC848F2A2F33D700777255 /* Main.storyboard */,
 				20AC84922A2F33D800777255 /* Assets.xcassets */,
+				208F15542A305A2A0006FD9B /* default_lottie.json */,
 				20AC84942A2F33D800777255 /* LaunchScreen.storyboard */,
 				20AC84972A2F33D800777255 /* Info.plist */,
 			);
@@ -326,6 +332,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				208F15552A305A2A0006FD9B /* default_lottie.json in Resources */,
 				20AC84962A2F33D800777255 /* LaunchScreen.storyboard in Resources */,
 				20AC84932A2F33D800777255 /* Assets.xcassets in Resources */,
 				20AC84912A2F33D700777255 /* Main.storyboard in Resources */,
@@ -458,6 +465,7 @@
 			files = (
 				20AC848E2A2F33D700777255 /* ViewController.swift in Sources */,
 				20AC84BC2A2F42D400777255 /* AssetView.swift in Sources */,
+				208F15532A30440A0006FD9B /* LottieAssetViewModel.swift in Sources */,
 				20AC848A2A2F33D700777255 /* AppDelegate.swift in Sources */,
 				208F15512A3038000006FD9B /* LottieAssetView.swift in Sources */,
 				20AC84C12A2F447F00777255 /* ImageAssetView.swift in Sources */,
