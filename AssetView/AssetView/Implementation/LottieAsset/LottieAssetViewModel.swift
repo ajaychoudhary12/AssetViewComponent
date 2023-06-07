@@ -9,7 +9,6 @@ import UIKit
 
 class LottieAssetViewModel: AssetViewModel {
     weak var viewActions: AssetViewActions?
-    var placeholder: UIImage?
     var delegate: AssetViewModelDelegate?
     
     var asset: LPAsset {
@@ -20,12 +19,10 @@ class LottieAssetViewModel: AssetViewModel {
     
     init(
         viewActions: AssetViewActions? = nil,
-        placeholder: UIImage? = nil,
         asset: LPAsset
     ) {
         self.viewActions = viewActions
         self.asset = asset
-        self.placeholder = placeholder
     }
     
     func assetLoadingFailed() {
