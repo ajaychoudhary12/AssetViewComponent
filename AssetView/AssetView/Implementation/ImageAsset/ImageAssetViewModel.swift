@@ -10,6 +10,7 @@ import UIKit
 class ImageAssetViewModel: AssetViewModel {
     weak var viewActions: AssetViewActions?
     var placeholder: UIImage?
+    var delegate: AssetViewModelDelegate?
     
     var asset: LPAsset {
         didSet {
@@ -25,5 +26,13 @@ class ImageAssetViewModel: AssetViewModel {
         self.viewActions = viewActions
         self.asset = asset
         self.placeholder = placeholder
+    }
+    
+    func assetLoadingFailed() {
+        delegate?.assetLoadedWith(success: false)
+    }
+    
+    func assetLoadingSucceded() {
+        delegate?.assetLoadedWith(success: true)
     }
 }

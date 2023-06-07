@@ -7,10 +7,18 @@
 
 import UIKit
 
+protocol AssetViewModelDelegate {
+    func assetLoadedWith(success: Bool)
+}
+
 protocol AssetViewModel {
     var viewActions: AssetViewActions? { get set }
     var asset: LPAsset { get set }
     var placeholder: UIImage? { get set }
+    var delegate: AssetViewModelDelegate? { get set }
+    
+    func assetLoadingFailed()
+    func assetLoadingSucceded()
 }
 
 protocol AssetView: AssetViewActions, UIView {

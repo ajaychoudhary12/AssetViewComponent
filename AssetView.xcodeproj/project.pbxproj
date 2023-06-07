@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		208F154E2A302EBA0006FD9B /* AssetViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208F154D2A302EBA0006FD9B /* AssetViewFactory.swift */; };
+		208F15512A3038000006FD9B /* LottieAssetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208F15502A3038000006FD9B /* LottieAssetView.swift */; };
 		20AC848A2A2F33D700777255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC84892A2F33D700777255 /* AppDelegate.swift */; };
 		20AC848C2A2F33D700777255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC848B2A2F33D700777255 /* SceneDelegate.swift */; };
 		20AC848E2A2F33D700777255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AC848D2A2F33D700777255 /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		0BBA19D37ACF54D46869DDE3 /* Pods_AssetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19454904BE8C5A9358A6B155 /* Pods-AssetViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetViewTests.debug.xcconfig"; path = "Target Support Files/Pods-AssetViewTests/Pods-AssetViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		208F154D2A302EBA0006FD9B /* AssetViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetViewFactory.swift; sourceTree = "<group>"; };
+		208F15502A3038000006FD9B /* LottieAssetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAssetView.swift; sourceTree = "<group>"; };
 		20AC84862A2F33D700777255 /* AssetView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AC84892A2F33D700777255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		20AC848B2A2F33D700777255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		208F154F2A3037F20006FD9B /* LottieAsset */ = {
+			isa = PBXGroup;
+			children = (
+				208F15502A3038000006FD9B /* LottieAssetView.swift */,
+			);
+			path = LottieAsset;
+			sourceTree = "<group>";
+		};
 		20AC847D2A2F33D700777255 = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +171,7 @@
 			children = (
 				20AC84BA2A2F42C600777255 /* Implementation */,
 				20AC84BB2A2F42D400777255 /* AssetView.swift */,
+				208F154D2A302EBA0006FD9B /* AssetViewFactory.swift */,
 			);
 			path = AssetView;
 			sourceTree = "<group>";
@@ -166,6 +179,7 @@
 		20AC84BA2A2F42C600777255 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
+				208F154F2A3037F20006FD9B /* LottieAsset */,
 				20AC84BD2A2F42F000777255 /* ImageAsset */,
 			);
 			path = Implementation;
@@ -200,7 +214,6 @@
 				19454904BE8C5A9358A6B155 /* Pods-AssetViewTests.debug.xcconfig */,
 				F2BEDA7D4D0EE4359D5AB515 /* Pods-AssetViewTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -446,7 +459,9 @@
 				20AC848E2A2F33D700777255 /* ViewController.swift in Sources */,
 				20AC84BC2A2F42D400777255 /* AssetView.swift in Sources */,
 				20AC848A2A2F33D700777255 /* AppDelegate.swift in Sources */,
+				208F15512A3038000006FD9B /* LottieAssetView.swift in Sources */,
 				20AC84C12A2F447F00777255 /* ImageAssetView.swift in Sources */,
+				208F154E2A302EBA0006FD9B /* AssetViewFactory.swift in Sources */,
 				20AC848C2A2F33D700777255 /* SceneDelegate.swift in Sources */,
 				20AC84BF2A2F43BB00777255 /* LPAsset.swift in Sources */,
 				20AC84C32A2F44D600777255 /* ImageAssetViewModel.swift in Sources */,
