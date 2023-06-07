@@ -10,6 +10,7 @@ import UIKit
 class ImageAssetViewModel: AssetViewModel {
     weak var viewActions: AssetViewActions?
     var delegate: AssetViewModelDelegate?
+    var placeholderName: String?
     
     var asset: LPAsset {
         didSet {
@@ -18,9 +19,11 @@ class ImageAssetViewModel: AssetViewModel {
     }
     
     init(
+        placeholderName: String? = nil,
         viewActions: AssetViewActions? = nil,
         asset: LPAsset
     ) {
+        self.placeholderName = placeholderName
         self.viewActions = viewActions
         self.asset = asset
     }

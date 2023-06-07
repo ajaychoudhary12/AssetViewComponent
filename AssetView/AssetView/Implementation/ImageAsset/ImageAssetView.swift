@@ -37,7 +37,8 @@ class ImageAssetView: UIView, AssetView {
     }
     
     func applyModel() {
-        setImage(viewModel.asset.url, placeholder: UIImage(systemName: "heart.fill"))
+        let placeholderName: String = viewModel.placeholderName ?? "placeholder"
+        setImage(viewModel.asset.url, placeholder: UIImage(named: placeholderName))
     }
     
     private func setImage(_ imageUrlString: String?, placeholder: UIImage? = nil) {

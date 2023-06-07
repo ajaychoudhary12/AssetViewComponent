@@ -84,7 +84,8 @@ class LottieAssetView: UIView, AssetView {
     }
     
     func playDefaultAnimation() {
-        lottieAnimationView = AnimationView(name: "default_lottie")
+        let placeholderName: String = viewModel.placeholderName ?? "placeholder"
+        lottieAnimationView = AnimationView(name: placeholderName)
         lottieAnimationView?.play()
     }
 }
