@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-final class LottieAssetView: UIView, AssetView {
+final class LottieAssetView: UIView, AssetViewActions {
     var viewModel: AssetViewModel
     
     var lottieAnimationView: AnimationView? {

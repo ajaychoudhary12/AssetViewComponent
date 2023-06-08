@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-final class ImageAssetView: UIView, AssetView {
+final class ImageAssetView: UIView, AssetViewActions {
     var viewModel: AssetViewModel
     
     required init(viewModel: AssetViewModel) {

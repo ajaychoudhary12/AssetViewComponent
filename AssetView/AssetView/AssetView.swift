@@ -21,10 +21,10 @@ protocol AssetViewModel {
     func onAssetLoadingSuccessful()
 }
 
-protocol AssetView: AssetViewActions, UIView {
+protocol AssetView: UIView {
     var viewModel: AssetViewModel { get }
 }
 
-protocol AssetViewActions: AnyObject {
+protocol AssetViewActions: AssetView, AnyObject {
     func applyModel()
 }
