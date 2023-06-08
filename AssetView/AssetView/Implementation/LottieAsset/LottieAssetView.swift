@@ -55,10 +55,10 @@ final class LottieAssetView: UIView, AssetView {
     }
     
     func applyModel() {
-        setLottie(viewModel.asset.url)
+        setLottieWithPlaceholder(viewModel.asset.url)
     }
     
-    private func setLottie(_ url: String?) {
+    private func setLottieWithPlaceholder(_ url: String?) {
         lottieAnimationView?.removeFromSuperview()
         lottieAnimationView = nil
         
@@ -66,13 +66,13 @@ final class LottieAssetView: UIView, AssetView {
            let animationUrl = URL(string: animationUrlString) {
             lottieAnimationView = AnimationView(url: animationUrl) { [weak self] error in
                 if error != nil {
-                    self?.viewModel.assetLoadingFailed()
+                    self?.viewModel.onAssetLoadingFailed()
                     self?.playDefaultAnimation()
                     return
                 }
                 
                 self?.lottieAnimationView?.play()
-                self?.viewModel.assetLoadingSucceded()
+                self?.viewModel.onAssetLoadingSuccessful()
             }
         } else {
             playDefaultAnimation()

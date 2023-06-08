@@ -17,8 +17,8 @@ protocol AssetViewModel {
     var delegate: AssetViewModelDelegate? { get set }
     var placeholderName: String? { get set }
     
-    func assetLoadingFailed()
-    func assetLoadingSucceded()
+    func onAssetLoadingFailed()
+    func onAssetLoadingSuccessful()
 }
 
 protocol AssetView: AssetViewActions, UIView {

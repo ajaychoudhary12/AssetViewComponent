@@ -28,11 +28,11 @@ class ImageAssetViewModel: AssetViewModel {
         self.asset = asset
     }
     
-    func assetLoadingFailed() {
+    func onAssetLoadingFailed() {
         delegate?.assetLoadedWith(success: false)
     }
     
-    func assetLoadingSucceded() {
+    func onAssetLoadingSuccessful() {
         delegate?.assetLoadedWith(success: true)
     }
 }

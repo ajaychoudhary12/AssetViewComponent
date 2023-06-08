@@ -14,8 +14,8 @@ final class ImageAssetView: UIView, AssetView {
     required init(viewModel: AssetViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
-        addSubview(imageView)
-        layoutConstraints()
+        setupSubviews()
+        setupLayoutConstraints()
         applyModel()
     }
     
@@ -23,7 +23,11 @@ final class ImageAssetView: UIView, AssetView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func layoutConstraints() {
+    private func setupSubviews() {
+        addSubview(imageView)
+    }
+    
+    private func setupLayoutConstraints() {
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.topAnchor.constraint(equalTo: topAnchor),
@@ -47,15 +51,15 @@ final class ImageAssetView: UIView, AssetView {
                 switch result {
                 case .success(let imageResult):
                     self.imageView.image = imageResult.image
-                    self.viewModel.assetLoadingSucceded()
+                    self.viewModel.onAssetLoadingSuccessful()
                 case .failure:
                     self.imageView.kf.setImage(with: imageUrl, placeholder: placeholder)
-                    self.viewModel.assetLoadingFailed()
+                    self.viewModel.onAssetLoadingFailed()
                 }
             }
         } else {
             self.imageView.image = placeholder
-            self.viewModel.assetLoadingFailed()
+            self.viewModel.onAssetLoadingFailed()
         }
     }
     
