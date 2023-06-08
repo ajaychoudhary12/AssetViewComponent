@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class LottieAssetView: UIView, AssetView {
+final class LottieAssetView: UIView, AssetView {
     var viewModel: AssetViewModel
     
     var lottieAnimationView: AnimationView? {
@@ -67,7 +67,7 @@ class LottieAssetView: UIView, AssetView {
             lottieAnimationView = AnimationView(url: animationUrl) { [weak self] error in
                 if error != nil {
                     self?.viewModel.assetLoadingFailed()
-                    self?.handleError()
+                    self?.playDefaultAnimation()
                     return
                 }
                 
@@ -75,12 +75,8 @@ class LottieAssetView: UIView, AssetView {
                 self?.viewModel.assetLoadingSucceded()
             }
         } else {
-            handleError()
+            playDefaultAnimation()
         }
-    }
-    
-    private func handleError() {
-        playDefaultAnimation()
     }
     
     func playDefaultAnimation() {

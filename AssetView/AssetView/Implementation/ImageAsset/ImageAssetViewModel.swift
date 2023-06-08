@@ -19,9 +19,9 @@ class ImageAssetViewModel: AssetViewModel {
     }
     
     init(
+        asset: LPAsset,
         placeholderName: String? = nil,
-        viewActions: AssetViewActions? = nil,
-        asset: LPAsset
+        viewActions: AssetViewActions? = nil
     ) {
         self.placeholderName = placeholderName
         self.viewActions = viewActions
