@@ -8,15 +8,18 @@
 import Foundation
 
 class AssetViewFactory {
-    static func getAssetView(for viewModel: inout AssetViewModel) -> AssetView? {
-        guard let type = viewModel.asset.mediaType else  { return nil }
+    static func getAssetView(asset: LPAsset?, placeholderName: String? = nil) -> AssetView? {
+        guard let asset = asset else { return nil }
+        guard let type = asset.mediaType else  { return nil }
         
         switch type {
         case .image:
+            let viewModel = ImageAssetViewModel(asset: asset)
             let imageAssetView = ImageAssetView(viewModel: viewModel)
             viewModel.viewActions = imageAssetView
             return imageAssetView
         case .lottie:
+            let viewModel = LottieAssetViewModel(asset: asset)
             let lottieAssetView = LottieAssetView(viewModel: viewModel)
             viewModel.viewActions = lottieAssetView
             return lottieAssetView

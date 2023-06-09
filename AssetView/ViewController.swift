@@ -32,30 +32,10 @@ class ViewController: UIViewController {
     }
     
     func setupAssets() {
-        viewModels = getViewModels()
-        for viewModel in viewModels {
-            if var viewModel = viewModel, let assetView = AssetViewFactory.getAssetView(for: &viewModel) {
+        for asset in LPAsset.assets {
+            if let assetView = AssetViewFactory.getAssetView(asset: asset) {
                 assetStackView.addArrangedSubview(assetView)
                 assetStackView.setCustomSpacing(20.0, after: assetView)
-            }
-        }
-    }
-    
-    func getViewModels() -> [AssetViewModel?] {
-        // These assets can be fetched from a network service
-        // The ViewModels should ideally be created from this viewController's viewModel once it fetches the assets.
-        return LPAsset.assets.map { asset in
-            switch asset.mediaType {
-            case .image:
-                let viewModel = ImageAssetViewModel(asset: asset)
-                return viewModel
-            case .lottie:
-                let viewModel = LottieAssetViewModel(asset: asset)
-                return viewModel
-            case .video:
-                return nil
-            case .none:
-                return nil
             }
         }
     }
