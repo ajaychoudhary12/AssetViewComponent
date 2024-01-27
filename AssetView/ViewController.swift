@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
+        view.backgroundColor = .white
         layoutSubViews()
         layoutConstraints()
         setupAssets()
