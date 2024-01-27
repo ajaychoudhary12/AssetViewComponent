@@ -12,14 +12,14 @@ class LottieAssetViewModel: AssetViewModel {
     var delegate: AssetViewModelDelegate?
     var placeholderName: String?
     
-    var asset: LPAsset {
+    var asset: Asset {
         didSet {
             viewActions?.applyModel()
         }
     }
     
     init(
-        asset: LPAsset,
+        asset: Asset,
         placeholderName: String? = nil,
         viewActions: AssetViewActions? = nil
     ) {

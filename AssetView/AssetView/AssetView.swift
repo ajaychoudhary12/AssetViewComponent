@@ -13,7 +13,7 @@ protocol AssetViewModelDelegate {
 
 protocol AssetViewModel {
     var viewActions: AssetViewActions? { get set }
-    var asset: LPAsset { get set }
+    var asset: Asset { get set }
     var delegate: AssetViewModelDelegate? { get set }
     var placeholderName: String? { get set }
     

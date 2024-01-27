@@ -8,11 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var viewModels: [AssetViewModel?] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
+        
         layoutSubViews()
         layoutConstraints()
         setupAssets()
@@ -24,15 +23,15 @@ class ViewController: UIViewController {
     
     func layoutConstraints() {
         NSLayoutConstraint.activate([
-            assetStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            assetStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             assetStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            assetStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            assetStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             assetStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
     func setupAssets() {
-        for asset in LPAsset.assets {
+        for asset in Asset.assets {
             if let assetView = AssetViewFactory.getAssetView(asset: asset) {
                 assetStackView.addArrangedSubview(assetView)
                 assetStackView.setCustomSpacing(20.0, after: assetView)

@@ -6,7 +6,7 @@ target 'AssetView' do
   use_frameworks!
 
   pod 'Kingfisher', '~> 7.6.2'
-  pod 'lottie-ios', '~> 3.4.1'
+  pod 'lottie-ios', '~> 4.3.3'
 
   target 'AssetViewTests' do
     inherit! :search_paths

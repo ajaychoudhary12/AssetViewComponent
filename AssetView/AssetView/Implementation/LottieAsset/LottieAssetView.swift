@@ -11,19 +11,16 @@ import Lottie
 final class LottieAssetView: UIView, AssetViewActions {
     var viewModel: AssetViewModel
     
-    var lottieAnimationView: AnimationView? {
-        didSet {
-            if lottieAnimationView != nil {
-                configureAnimationView()
-                addAnimationViewAsSubview()
-                layoutConstraints()
-            }
-        }
-    }
+    private var lottieAnimationView: LottieAnimationView = LottieAnimationView(frame: .zero)
     
     required init(viewModel: AssetViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
+        
+        configureAnimationView()
+        addSubviews()
+        layoutConstraints()
+        
         applyModel()
     }
     
@@ -32,20 +29,16 @@ final class LottieAssetView: UIView, AssetViewActions {
     }
     
     func configureAnimationView() {
-        guard let lottieAnimationView = lottieAnimationView else { return }
         lottieAnimationView.contentMode = .scaleAspectFit
         lottieAnimationView.loopMode = .loop
-        lottieAnimationView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func addAnimationViewAsSubview() {
-        if let lottieAnimationView = lottieAnimationView {
-            if lottieAnimationView.superview == nil { addSubview(lottieAnimationView) }
-        }
+    private func addSubviews() {
+        lottieAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(lottieAnimationView)
     }
     
     private func layoutConstraints() {
-        guard let lottieAnimationView = lottieAnimationView else { return }
         NSLayoutConstraint.activate([
             lottieAnimationView.leadingAnchor.constraint(equalTo: leadingAnchor),
             lottieAnimationView.topAnchor.constraint(equalTo: topAnchor),
@@ -59,29 +52,35 @@ final class LottieAssetView: UIView, AssetViewActions {
     }
     
     private func setLottieWithPlaceholder(_ url: String?) {
-        lottieAnimationView?.removeFromSuperview()
-        lottieAnimationView = nil
+        self.playDefaultAnimation()
         
         if let animationUrlString = url,
-           let animationUrl = URL(string: animationUrlString) {
-            lottieAnimationView = AnimationView(url: animationUrl) { [weak self] error in
-                if error != nil {
-                    self?.viewModel.onAssetLoadingFailed()
-                    self?.playDefaultAnimation()
+           let animationUrl = URL(string: "") {
+            LottieAnimation.loadedFrom(url: animationUrl) { [weak self] animation in
+                guard let self = self else { return }
+                if animation == nil {
+                    self.viewModel.onAssetLoadingFailed()
+                    self.playDefaultAnimation()
                     return
                 }
                 
-                self?.lottieAnimationView?.play()
-                self?.viewModel.onAssetLoadingSuccessful()
+                self.lottieAnimationView.animation = animation
+                self.playAnimation()
+                self.viewModel.onAssetLoadingSuccessful()
             }
         } else {
-            playDefaultAnimation()
+            self.playDefaultAnimation()
         }
+    }
+    
+    private func playAnimation() {
+        lottieAnimationView.play()
     }
     
     func playDefaultAnimation() {
         let placeholderName: String = viewModel.placeholderName ?? "placeholder"
-        lottieAnimationView = AnimationView(name: placeholderName)
-        lottieAnimationView?.play()
+        
+        lottieAnimationView.animation = LottieAnimation.named(placeholderName)
+        lottieAnimationView.play()
     }
 }

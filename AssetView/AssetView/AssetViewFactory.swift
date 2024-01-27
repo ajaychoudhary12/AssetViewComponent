@@ -8,7 +8,7 @@
 import Foundation
 
 class AssetViewFactory {
-    static func getAssetView(asset: LPAsset?, placeholderName: String? = nil) -> AssetView? {
+    static func getAssetView(asset: Asset?, placeholderName: String? = nil) -> AssetView? {
         guard let asset = asset else { return nil }
         guard let type = asset.mediaType else  { return nil }
         
@@ -24,6 +24,7 @@ class AssetViewFactory {
             viewModel.viewActions = lottieAssetView
             return lottieAssetView
         case .video:
+            print("We do not support video media just yet!")
             return nil
         }
     }
