@@ -23,7 +23,14 @@ class Asset {
     }
     
     static let assets: [Asset] = [
-        Asset(mediaType: .image, url: "https://picsum.photos/200"),
-        Asset(mediaType: .lottie, url: "https://assets9.lottiefiles.com/packages/lf20_jyylm3x9.json")
+        Asset(
+            mediaType: .image,
+            url: "https://i.ibb.co/cxPpF6W/mac-graphic.jpg"
+        ),
+        
+        Asset(
+            mediaType: .lottie, 
+            url: "https://lottie.host/acd47bb1-ca62-496a-b70b-31be26e21413/2fJsty7yCB.json"
+        )
     ]
 }

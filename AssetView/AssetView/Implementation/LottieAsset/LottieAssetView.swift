@@ -52,8 +52,6 @@ final class LottieAssetView: UIView, AssetViewActions {
     }
     
     private func setLottieWithPlaceholder(_ url: String?) {
-        self.playDefaultAnimation()
-        
         if let animationUrlString = url,
            let animationUrl = URL(string: animationUrlString) {
             LottieAnimation.loadedFrom(url: animationUrl) { [weak self] animation in
