@@ -55,7 +55,7 @@ final class LottieAssetView: UIView, AssetViewActions {
         self.playDefaultAnimation()
         
         if let animationUrlString = url,
-           let animationUrl = URL(string: "") {
+           let animationUrl = URL(string: animationUrlString) {
             LottieAnimation.loadedFrom(url: animationUrl) { [weak self] animation in
                 guard let self = self else { return }
                 if animation == nil {
